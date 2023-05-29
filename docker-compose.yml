@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  pozos:
+    image: pozos:v1
+    container_name: pozos
+    ports:
+      - 80:5000
+    volumes:
+      - ./student-list/simple_api:/data/
+  
+  PHP:
+    image: php:apache
+    environment:
+      - USERNAME=toto
+      - PASSWORD=python
+    ports:
+      - 8000:80
+    volumes:
+      - ./student-list/website:/var/www/html
+    depends_on:
+      - pozos
+  
