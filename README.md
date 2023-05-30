@@ -64,3 +64,5 @@ Docker compose up -d
 ```
 
 - vérifier que le site est fonctionnel, et le résultat doit être comme suit : 
+![22](https://github.com/adda213/mini-projet-docker/assets/123883398/465d8afa-c04d-41c4-bf97-54309c7b5fb4)
+
