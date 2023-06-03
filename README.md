@@ -18,7 +18,7 @@ La création de notre API se fait par les étapes suivantes :
 ```
 docker build -t pozos:v1 .
 ```
-- démarrer le conteneur de l'application après la création de l'image (POZOS) (à ne pas oublier de monter le volume qui contient les fichiers de l'API dans le dossier spécifié par les développeurs) : 
+- démarrer le conteneur qui contient l'application après la création de l'image (POZOS) (à ne pas oublier de monter le volume qui contient les fichiers de l'API dans le dossier spécifié par les développeurs) : 
 
 ```
 docker run --name pozos -d -p 80:5000 -v ./:/data/ pozos:v1
@@ -55,9 +55,16 @@ vi docker-compose.yml
 Dans notre cas, pozos représente l’API, et PHP représente le website
 
 POZOS : ne pas oublier à monter le volume qui contient les ficher de l’API.
+
+![image](https://github.com/adda213/mini-projet-docker/assets/123883398/cfce9f0f-9dda-4098-88ef-66d856c5c7eb)
+
+
 PHP : le username est toto , password est python 
 
-- avant de lancer le docker compose ne pas oublier de modifier la ligne 29 dans le ficher sutdent-list/website/index.php avec les bon paramètres (HOST API, Port), exécuter le docker compose à l'aide de la ligne de commande suivante : 
+![image](https://github.com/adda213/mini-projet-docker/assets/123883398/f2c2c8ff-d576-43d8-b364-20a13bf4f1cf)
+
+
+- avant de lancer le docker compose ne pas oublier de modifier la ligne 29 dans le ficher sutdent-list/website/index.php avec les bon paramètres (HOST API, Port), exécutez le docker compose à l'aide de la ligne de commande suivante : 
 
 ```
 Docker compose up -d
