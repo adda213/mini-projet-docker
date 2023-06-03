@@ -44,7 +44,7 @@ docker ps  #pour récupérer ID du conteneur
 docker rm <ID conteneur> 
 ```
 
-### création de l'infrastructure a l'aide de docker compose
+### création de l'infrastructure à l'aide de docker compose
 
 Dans cette partie de ce projet, nous allons créer le site qui permettre d'afficher la liste d’étudiant, le site est tout simplement un conteneur crée à la base d'une image PHP qui permettre de lire le ficher PHP crée par le développeur de l'application et afficher la liste des étudiant, nous allons suivre les étapes suivantes : 
 
@@ -64,7 +64,7 @@ PHP : le username est toto , password est python
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/f2c2c8ff-d576-43d8-b364-20a13bf4f1cf)
 
 
-- avant de lancer le docker compose ne pas oublier de modifier la ligne 29 dans le ficher sutdent-list/website/index.php avec les bon paramètres (HOST API, Port), exécutez le docker compose à l'aide de la ligne de commande suivante : 
+- avant de lancer le docker compose ne pas oublier de modifier la ligne 29 dans le ficher student-list/website/index.php avec les bon paramètres (HOST API, Port), exécutez le docker compose à l'aide de la ligne de commande suivante : 
 
 ```
 Docker compose up -d
@@ -76,45 +76,45 @@ Docker compose up -d
 
 ## CREATION D'UN REGISTRY LOCAL 
 
-Apres la creation et le test de notre application , nous allons stocké notre image que nous avons testé dans un  registry et afficher a l'aide d'une interface d'usage toutes les images que nous avons stocké .
+Apres la création et le test de notre application , nous allons stocké notre image que nous avons testé dans un  registry et afficher à l'aide d'une interface d'usage toutes les images que nous avons stocké .
 
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/8289f5bc-2ade-4ed5-a9aa-cab40d9ea24f)
 
-- image : represente l'image de l'application et la version de REGISTRY utilisé pour creer le conteneur registry, 
-- volume : reprsente le volume monté dans le conteur qui permettre le stockage des images localement .
-- ports : 5000 a gauche represente le ports externe , 5000 a droite reprsesente le port interne
-- network : represente le reseau qui contient notre conteneur , ce reseau est ajouté afin de créer une comunnication interne entre le registry , et l'interface d'usage .
+- image : représente l'image de l'application et la version de REGISTRY utilisé pour créer le conteneur registry, 
+- volume : représente le volume monté dans le conteur qui permettre le stockage des images localement.
+- ports : 5000 à gauche représente le ports externe, 5000 à droite représente le port interne
+- network : représente le réseau qui contient notre conteneur, ce réseau est ajouté afin de créer une communication interne entre le registry , et l'interface d'usage .
 
 ## CREATION D'UNE INTERFACE D'USAGE
 
-cette interface va nous permettre de nous afficher toute images sotcké dans le registry local, et permettre aussi de gerer les images par l'ajout des variables d'environnement qui reste optionnel dans ce projet . 
+Cette interface va nous permettre de nous afficher toute images stocké dans le registry local, et permettre aussi de gérer les images par l'ajout des variables d'environnement qui reste optionnel dans ce projet . 
 
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/e0cbb06a-2160-4ab8-a76e-ffaa57d135e1)
 
-- image : represente l'image de l'application et la version de REGISTRY_UI utilisé pour creer le conteneur .
-- ports : 4000 a gauche represente le ports externe , 80 a droite reprsesente le port interne
-- environnement : reprsente les variable d'environement insipensable et optionnel 
+- image : représente l'image de l'application et la version de REGISTRY_UI utilisé pour créer le conteneur.
+- ports : 4000 à gauche représente le ports externe, 80 à droite représente le port interne
+- environnement : représente les variable d'environnement indispensable et optionnel 
     REGISTRY_TITLE : le titre du REGISTRY_UI
-    NGINX_PROXY_PASS_URL :Mettez à jour la configuration Nginx par défaut et définissez le proxy_pass sur votre registre backend      docker
-    SINGLE_REGISTRY : permettre d'autoriser ou non de changer dynamiquement le REGISTRY URL ( en cas plusieurs registry)
-    SHOW_CONTENT_DIGEST : permet de voir le detail du docker tags 
+    NGINX_PROXY_PASS_URL : Mettez à jour la configuration Nginx par défaut et définissez le proxy_pass sur votre registre backend      docker
+    SINGLE_REGISTRY : permettre d'autoriser ou non de changer dynamiquement le REGISTRY URL (en cas plusieurs registry)
+    SHOW_CONTENT_DIGEST : permet de voir le détail du docker tags 
     
-apre la modification du ficher docker compose , il faut le relancer en utilisant la commande suivante : 
+Après la modification du ficher docker compose, il faut le relancer en utilisant la commande suivante : 
 
 ```
 Docker compose up -d
 ```
-creer un nouveau tags pour l'image pozos : 
+Créer un nouveau tag pour l'image pozos : 
 ```
 docker tag pozos:v1 localhost:5000/pozos:v1
 ```
-pousser l'application dans le registry local : 
+Pousser l'application dans le registry local : 
 ```
 docker push localhost:5000/pozos:v1
 ```
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/df8c73df-ea56-4aae-bdba-49fe5feaa9f4)
 
-verifier que le REGISTRY_UI et fonctionnel , et que notre image est bien affiché dans le registry_ui :
+Vérifier que le REGISTRY_UI et fonctionnel, et que notre image est bien affichée dans le registry_ui :
 
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/ba8f6c09-fd9c-458d-b30d-6932ea10b211)
 
