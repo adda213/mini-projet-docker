@@ -73,3 +73,54 @@ Docker compose up -d
 - vérifier que le site est fonctionnel, et le résultat doit être comme suit : 
 ![22](https://github.com/adda213/mini-projet-docker/assets/123883398/465d8afa-c04d-41c4-bf97-54309c7b5fb4)
 
+
+## CREATION D'UN REGISTRY LOCAL 
+
+Apres la creation et le test de notre application , nous allons stocké notre image que nous avons testé dans un  registry et afficher a l'aide d'une interface d'usage toutes les images que nous avons stocké .
+![image](https://github.com/adda213/mini-projet-docker/assets/123883398/8289f5bc-2ade-4ed5-a9aa-cab40d9ea24f)
+- image : represente l'image de l'application et la version de REGISTRY utilisé pour creer le conteneur registry, 
+- volume : reprsente le volume monté dans le conteur qui permettre le stockage des images localement .
+- ports : 5000 a gauche represente le ports externe , 5000 a droite reprsesente le port interne
+- network : represente le reseau qui contient notre conteneur , ce reseau est ajouté afin de créer une comunnication interne entre le registry , et l'interface d'usage .
+
+## CREATION D'UNE INTERFACE D'USAGE
+
+cette interface va nous permettre de nous afficher toute images sotcké dans le registry local, et permettre aussi de gerer les images par l'ajout des variables d'environnement qui reste optionnel dans ce projet . 
+
+![image](https://github.com/adda213/mini-projet-docker/assets/123883398/e0cbb06a-2160-4ab8-a76e-ffaa57d135e1)
+
+- image : represente l'image de l'application et la version de REGISTRY_UI utilisé pour creer le conteneur .
+- ports : 4000 a gauche represente le ports externe , 80 a droite reprsesente le port interne
+- environnement : reprsente les variable d'environement insipensable et optionnel 
+    REGISTRY_TITLE : le titre du REGISTRY_UI
+    NGINX_PROXY_PASS_URL :Mettez à jour la configuration Nginx par défaut et définissez le proxy_pass sur votre registre backend      docker
+    SINGLE_REGISTRY : permettre d'autoriser ou non de changer dynamiquement le REGISTRY URL ( en cas plusieurs registry)
+    SHOW_CONTENT_DIGEST : permet de voir le detail du docker tags 
+    
+apre la modification du ficher docker compose , il faut le relancer en utilisant la commande suivante : 
+
+```
+Docker compose up -d
+```
+creer un nouveau tags pour l'image pozos : 
+```
+docker tag pozos:v1 localhost:5000/pozos:v1
+```
+pousser l'application dans le registry local : 
+```
+docker push localhost:5000/pozos:v1
+```
+![image](https://github.com/adda213/mini-projet-docker/assets/123883398/df8c73df-ea56-4aae-bdba-49fe5feaa9f4)
+
+verifier que le REGISTRY_UI et fonctionnel , et que notre image est bien dans le registry :
+
+![image](https://github.com/adda213/mini-projet-docker/assets/123883398/ba8f6c09-fd9c-458d-b30d-6932ea10b211)
+
+FIN.
+
+
+
+
+
+    
+
