@@ -112,7 +112,7 @@ docker push localhost:5000/pozos:v1
 ```
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/df8c73df-ea56-4aae-bdba-49fe5feaa9f4)
 
-verifier que le REGISTRY_UI et fonctionnel , et que notre image est bien dans le registry :
+verifier que le REGISTRY_UI et fonctionnel , et que notre image est bien affiché dans le registry_ui :
 
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/ba8f6c09-fd9c-458d-b30d-6932ea10b211)
 
