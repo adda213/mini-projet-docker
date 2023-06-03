@@ -77,7 +77,9 @@ Docker compose up -d
 ## CREATION D'UN REGISTRY LOCAL 
 
 Apres la creation et le test de notre application , nous allons stocké notre image que nous avons testé dans un  registry et afficher a l'aide d'une interface d'usage toutes les images que nous avons stocké .
+
 ![image](https://github.com/adda213/mini-projet-docker/assets/123883398/8289f5bc-2ade-4ed5-a9aa-cab40d9ea24f)
+
 - image : represente l'image de l'application et la version de REGISTRY utilisé pour creer le conteneur registry, 
 - volume : reprsente le volume monté dans le conteur qui permettre le stockage des images localement .
 - ports : 5000 a gauche represente le ports externe , 5000 a droite reprsesente le port interne
