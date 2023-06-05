@@ -120,6 +120,10 @@ Vérifier que le REGISTRY_UI et fonctionnel, et que notre image est bien affich�
 
 FIN.
 
+nom : KADDOUR BRAHIM
+Prénom : Adda Zouaoui
+Formation : Eazytrainning BOOTCAMP-12
+
 
 
 
