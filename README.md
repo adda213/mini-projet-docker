@@ -1,4 +1,4 @@
-# student-list 
+# student-list PROJECT
 
 Ce repository est une simple application qui permet d'afficher une liste d'étudiant  en utilisant une API délivré par un developpeur et un webserver PHP
 ![project](https://user-images.githubusercontent.com/18481009/84582395-ba230b00-adeb-11ea-9453-22ed1be7e268.jpg)
